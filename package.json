@@ -1,14 +1,22 @@
 {
-  "name": "static-site",
+  "name": "challenge-9",
   "version": "1.0.0",
-  "description": "",
+  "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaneLeeJohnson/README-Generator-App.git"
+  },
+  "author": "Shane Johnson",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShaneLeeJohnson/README-Generator-App/issues"
+  },
+  "homepage": "https://github.com/ShaneLeeJohnson/README-Generator-App#readme",
   "dependencies": {
-    "inquirer": "^6.3.1"
+    "inquirer": "^8.2.4"
   }
 }
