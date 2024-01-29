@@ -89,10 +89,32 @@ function generateMarkdown(data) {
 	const contributing = data.contributing;
 	const tests = data.tests;
 	let questions;
+	let tableOfContents = `## Table of Contents\n`;
+
+	if (installation !== '') {
+		tableOfContents += `* [Installation](#installation)\n`;
+	}
+
+	if (usage !== '') {
+		tableOfContents += `* [Usage](#usage)\n`;
+	}
+
+	tableOfContents += `* [License](#license)\n`;
+	
+	if (contributing !== '') {
+		tableOfContents += `* [Contributing](#contributing)\n`;
+	}
+
+	if (tests !== '') {
+		tableOfContents += `* [Tests](#tests)\n`;
+	}
+
+	tableOfContents += `* [Questions](#questions)`;
 
 	let markdown = `# ${data.title}\n\n`;
 	markdown += `${licenseBadge}\n\n`;
 	markdown += `## Description\n\n${description}\n\n`;
+	markdown += `${tableOfContents}\n\n`;
 
 	if (installation !== '') {
 		markdown += `## Installation\n\n${installation}\n\n`;
