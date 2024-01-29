@@ -83,9 +83,33 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
 	const licenseBadge = renderLicenseBadge(data.license);
 	const licenseSection = renderLicenseSection(data.license);
+	const description = data.description;
+	const installation = data.installation;
+	const usage = data.usage;
+	const contributing = data.contributing;
+	const tests = data.tests;
+	let questions;
+
 	let markdown = `# ${data.title}\n\n`;
 	markdown += `${licenseBadge}\n\n`;
-	markdown += `## License\n\n${licenseSection}\n\n`
+	markdown += `## Description\n\n${description}\n\n`;
+
+	if (installation !== '') {
+		markdown += `## Installation\n\n${installation}\n\n`;
+	}
+
+	markdown += `## Usage\n\n${usage}\n\n`;
+	markdown += `## License\n\n${licenseSection}\n\n`;
+
+	if (contributing !== '') {
+		markdown += `## Contributing\n\n${contributing}\n\n`;
+	}
+
+	if (tests !== '') {
+		markdown += `## Tests\n\n${tests}\n\n`;
+	}
+
+	markdown += `## Questions\n\n${questions}`;
 
 	return markdown
 }
