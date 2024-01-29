@@ -38,7 +38,7 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        choices: ['Apache License 2.0', 'GNU GPL v3.0', 'MIT License', 'Boost Software License 1.0', 'Eclipse Public License 2.0', 'GNU AGPL v3.0', 'GNU LGPL v2.1', 'Mozilla Public License 2.0', 'The Unlicense']
+        choices: ['Apache License 2.0', 'GNU GPL v3.0', 'MIT License', 'Boost Software License 1.0', 'Eclipse Public License 2.0', 'GNU AGPL v3.0', 'GNU LGPL v2.1', 'Mozilla Public License 2.0', 'The Unlicense', 'No License']
     }
 ];
 
@@ -57,10 +57,11 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
         .then((answers) => {
-            console.log(answers)
+            const markdown = generateMarkdown(answers);
+            writeToFile('SampleREADME.md', markdown);
         })
         .catch((err) => {
-            console.error('Error prompting user: err');
+            console.error('Error prompting user:', err);
         });
 }
 
