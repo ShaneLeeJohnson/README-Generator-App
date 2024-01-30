@@ -16,7 +16,6 @@ To see how this works please watch the following video of this app in action:
 
 [README-Generator-App-Demo.webm](https://github.com/ShaneLeeJohnson/README-Generator-App/assets/77424320/e7dba460-6405-42e6-89ba-46468cc34bc7)
 
-
 ## Credits
 
 Starter code-UTSA Full Stack Bootcamp: https://github.com/coding-boot-camp/potential-enigma
