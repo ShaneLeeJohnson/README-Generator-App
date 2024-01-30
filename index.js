@@ -39,6 +39,16 @@ const questions = [
         type: 'list',
         name: 'license',
         choices: ['Apache License 2.0', 'GNU GPL v3.0', 'MIT License', 'Boost Software License 1.0', 'Eclipse Public License 2.0', 'GNU AGPL v3.0', 'GNU LGPL v2.1', 'Mozilla Public License 2.0', 'The Unlicense', 'No License']
+    },
+    {
+        type: 'input',
+        name: 'userName',
+        message: 'Please enter your GitHub user name'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Please enter your email'
     }
 ];
 
