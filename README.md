@@ -14,7 +14,8 @@ To use this application, the user needs to open their command line terminal and 
 
 To see how this works please watch the following video of this app in action:
 
-![README Generator App Demo](/README-Generator-App-Demo.webm)
+[README-Generator-App-Demo.webm](https://github.com/ShaneLeeJohnson/README-Generator-App/assets/77424320/e7dba460-6405-42e6-89ba-46468cc34bc7)
+
 
 ## Credits
 
