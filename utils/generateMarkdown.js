@@ -88,7 +88,8 @@ function generateMarkdown(data) {
 	const usage = data.usage;
 	const contributing = data.contributing;
 	const tests = data.tests;
-	let questions;
+	const userName = data.userName;
+	const email = data.email;
 	let tableOfContents = `## Table of Contents\n`;
 
 	if (installation !== '') {
@@ -100,7 +101,7 @@ function generateMarkdown(data) {
 	}
 
 	tableOfContents += `* [License](#license)\n`;
-	
+
 	if (contributing !== '') {
 		tableOfContents += `* [Contributing](#contributing)\n`;
 	}
@@ -112,7 +113,11 @@ function generateMarkdown(data) {
 	tableOfContents += `* [Questions](#questions)`;
 
 	let markdown = `# ${data.title}\n\n`;
-	markdown += `${licenseBadge}\n\n`;
+
+	if (data.license !== 'No License') {
+		markdown += `${licenseBadge}\n\n`;
+	}
+
 	markdown += `## Description\n\n${description}\n\n`;
 	markdown += `${tableOfContents}\n\n`;
 
@@ -129,6 +134,16 @@ function generateMarkdown(data) {
 
 	if (tests !== '') {
 		markdown += `## Tests\n\n${tests}\n\n`;
+	}
+
+	let questions = `If you have any questions about this project, please feel free to contact me using the methods below\n\n`;
+
+	if (userName !== '') {
+		questions += `Github username: [${userName}](https://github.com/${userName})\n\n`;
+	}
+
+	if (email !== '') {
+		questions += `Email: ${email}`;
 	}
 
 	markdown += `## Questions\n\n${questions}`;
