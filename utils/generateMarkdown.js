@@ -1,3 +1,4 @@
+// An array of license objects that each have their own badge and link urls.
 const licenses = [
 	{
 		name: 'Apache License 2.0',
@@ -81,6 +82,7 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+	// variables for saving the users responses to the prompted questions
 	const licenseBadge = renderLicenseBadge(data.license);
 	const licenseSection = renderLicenseSection(data.license);
 	const description = data.description;
@@ -90,8 +92,11 @@ function generateMarkdown(data) {
 	const tests = data.tests;
 	const userName = data.userName;
 	const email = data.email;
+	// Creates the table of contents section of the README
 	let tableOfContents = `## Table of Contents\n`;
 
+	// The following logic checks to make sure that user actually wrote something for each of the following
+	// sections. If they did, then those sections are added to the Table of Contents
 	if (installation !== '') {
 		tableOfContents += `* [Installation](#installation)\n`;
 	}
@@ -112,43 +117,56 @@ function generateMarkdown(data) {
 
 	tableOfContents += `* [Questions](#questions)`;
 
+	// Adds the title section to the README file
 	let markdown = `# ${data.title}\n\n`;
 
+	// Checks that the user picked a license and if they did, adds the license badge near the top of the README file
 	if (data.license !== 'No License') {
 		markdown += `${licenseBadge}\n\n`;
 	}
 
+	// Adds the description and table of contents sections to the README file
 	markdown += `## Description\n\n${description}\n\n`;
 	markdown += `${tableOfContents}\n\n`;
 
+	// Checks if the user has installation steps and if they do, adds the installation section to the README file
 	if (installation !== '') {
 		markdown += `## Installation\n\n${installation}\n\n`;
 	}
 
+	// Adds the usage and license sections to the README file
 	markdown += `## Usage\n\n${usage}\n\n`;
 	markdown += `## License\n\n${licenseSection}\n\n`;
 
+	// Checks if the user has contributing guidelines for their project and if they do, 
+	// adds the contributing section to the README file
 	if (contributing !== '') {
 		markdown += `## Contributing\n\n${contributing}\n\n`;
 	}
 
+	// Checks if the user provided any tests info for their project and if they did, adds the tests section to the README file
 	if (tests !== '') {
 		markdown += `## Tests\n\n${tests}\n\n`;
 	}
 
+	// Creates the questions section of the README file
 	let questions = `If you have any questions about this project, please feel free to contact me using the methods below\n\n`;
 
+	// Checks if the user added their github username and if they did, adds it to the questions section
 	if (userName !== '') {
 		questions += `Github username: [${userName}](https://github.com/${userName})\n\n`;
 	}
 
+	// Checks if the user added their email and if they did, adds it to the questions section
 	if (email !== '') {
 		questions += `Email: ${email}`;
 	}
 
+	// Adds the questions section to the README file
 	markdown += `## Questions\n\n${questions}`;
 
 	return markdown
 }
 
+// Exports the generateMarkdown function so that it can be used in the index.js file.
 module.exports = generateMarkdown;
